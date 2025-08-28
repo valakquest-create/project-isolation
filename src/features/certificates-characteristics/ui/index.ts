@@ -1,0 +1,1 @@
+export { CertificateCharacteristics } from "./characteristics";

@@ -1,0 +1,57 @@
+.city-confirmation {
+  width: 200px;
+  background: var(--background-color-menu-mobail);
+  padding: 8px;
+  position: absolute;
+  top: 150%;
+  right: 100%;
+
+  &__title {
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__confirm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: fit-content;
+    height: 40px;
+
+    padding: 0 20px;
+
+    background-color: crimson;
+
+    color: #fff;
+
+    border: none;
+    border-radius: 12px;
+
+    cursor: pointer;
+  }
+
+  &__change {
+    text-decoration: underline #d53032;
+
+    border: none;
+
+    background: none;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

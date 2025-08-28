@@ -1,0 +1,167 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Contact {
+  id    Int    @id @default(autoincrement())
+  type  String @db.VarChar(255)
+  value String @db.VarChar(255)
+}
+
+model MainPage {
+  id    Int    @id @default(autoincrement())
+  about String @db.Text
+}
+
+model Quest {
+  id         Int        @id @default(autoincrement())
+  name       String     @db.VarChar(255)
+  uniqueName String     @db.VarChar(255) @unique
+  basePrice  Int        @db.Integer
+  duration   Int        @db.Integer
+  fearLevel  Int        @db.SmallInt
+  personFrom Int        @db.SmallInt
+  personTo   Int        @db.SmallInt
+  photos     String[]   @db.VarChar(255)
+  isActive   Boolean    @db.Boolean @default(true)
+
+  page       QuestPage?
+  orders     Order[]
+
+  addressId  Int?                
+  address    Address?    @relation(fields: [addressId], references: [id], onDelete: Cascade)
+}
+
+model QuestPage {
+  id          Int    @id @default(autoincrement())
+  title       String @db.VarChar(255)
+  description String @db.Text
+  h1          String @db.VarChar(255)
+  content     String @db.Text
+  quest       Quest  @relation(fields: [questId], references: [id], onDelete: Cascade)
+  questId     Int    @unique
+}
+
+model Order {
+  id               Int       @id @default(autoincrement())
+  createdAt        DateTime  @db.Timestamp() @default(now())
+  updatedAt        DateTime  @db.Timestamp() @updatedAt
+  dateTime         DateTime  @db.Timestamp()
+  name             String    @db.VarChar(255)
+  phone            String    @db.VarChar(255)
+  personCount      Int       @db.SmallInt
+  confirmed        Boolean   @db.Boolean @default(false)
+  closed           Boolean   @db.Boolean @default(false)
+  eventId          String    @db.VarChar(21) @default("")
+
+  quest            Quest     @relation(fields: [questId], references: [id])
+  questId          Int 
+}
+
+model User {
+  id            String          @id @default(cuid())
+  name          String?
+  email         String          @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+ 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+ 
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+ 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+ 
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+ 
+  @@id([provider, providerAccountId])
+}
+ 
+model Session {
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+ 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+ 
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+ 
+  @@id([identifier, token])
+}
+
+model CertificatesPage {
+  id      Int      @id @default(autoincrement())
+  h1      String   @db.VarChar(255)
+  content String   @db.Text
+  images  String[] @db.VarChar(255)
+}
+
+model CertificateOrder {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(50)
+  phone     String   @db.VarChar(20)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Franchising {
+  id          Int    @id @default(autoincrement())
+  title       String @db.VarChar(255)
+  description String @db.Text
+}
+
+model Address {
+  id     Int    @id @default(autoincrement())
+  place  String @db.VarChar(255)
+
+  cityId Int
+  city   City   @relation(fields: [cityId], references: [id], onDelete: Cascade)
+
+  quests Quest[]
+}
+
+model City {
+  id        Int    @id @default(autoincrement())
+  name      String @db.VarChar(255)
+  map       String @db.VarChar(255)
+
+  addresses Address[]
+}
+
+model Holiday {
+  id   Int @id @default(autoincrement())
+  name String @db.VarChar(255)
+  date DateTime @db.Timestamp()
+}

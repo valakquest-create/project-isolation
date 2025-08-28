@@ -1,0 +1,1 @@
+export { mainPageRepository } from "./api";

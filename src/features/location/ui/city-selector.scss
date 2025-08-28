@@ -1,0 +1,31 @@
+.city-selector {
+  width: 200px;
+  background: var(--background-color-menu-mobail);
+  padding: 8px;
+  position: absolute;
+  top: 150%;
+  right: 100%;
+
+  &__title {
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    &-item {
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline #d53032;
+      }
+    }
+  }
+
+  @media (max-width: 575px) {
+    right: 45%;
+  }
+}

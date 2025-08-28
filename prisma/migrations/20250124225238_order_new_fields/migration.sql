@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Order" ADD COLUMN     "closed" BOOLEAN NOT NULL DEFAULT false,
+ADD COLUMN     "eventId" VARCHAR(21) NOT NULL DEFAULT '',
+ALTER COLUMN "confirmed" SET DEFAULT false;

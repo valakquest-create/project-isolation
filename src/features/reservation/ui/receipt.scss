@@ -1,0 +1,15 @@
+.receipt {
+  &__link {
+    color: #fff;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__data {
+    font-weight: 700;
+    color: #d53032;
+  }
+}

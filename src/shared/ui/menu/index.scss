@@ -1,0 +1,28 @@
+.nav-menu {
+  width: fit-content;
+  height: fit-content;
+
+  &__link {
+    cursor: pointer;
+    margin-right: 32px;
+    text-decoration-line: underline;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--primary-color-link);
+
+    background-color: transparent;
+
+    border: none;
+
+    padding: 0;
+
+    width: fit-content;
+    height: fit-content;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

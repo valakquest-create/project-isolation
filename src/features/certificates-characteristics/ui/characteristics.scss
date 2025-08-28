@@ -1,0 +1,15 @@
+.certificate-characteristics {
+  &__list {
+    text-align: left;
+    list-style: disc;
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .certificate-characteristics {
+    &__list {
+      padding-left: 10px;
+    }
+  }
+}

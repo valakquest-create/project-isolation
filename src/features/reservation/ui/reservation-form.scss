@@ -1,0 +1,240 @@
+@keyframes unmountForm {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+$reservation-form-radius: 8px;
+$reservation-form-gap: 1.5rem;
+$reservation-input-height: 48px;
+$reservation-button-height: 52px;
+
+.reservation-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  padding: 2rem 2.5rem;
+  font-size: 15px;
+  color: var(--primary-color-text);
+  background: var(--background-color-reservation-form);
+  border-top: 1px solid #fff;
+  border-radius: $reservation-form-radius;
+  animation-duration: 0.2s !important;
+  gap: $reservation-form-gap;
+
+  &.exiting {
+    animation: unmountForm 3s forwards;
+  }
+
+  &__text {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  &__price {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &-rub {
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    &-notice {
+      color: crimson;
+      font-size: 13px;
+      margin-top: 0.25rem;
+    }
+  }
+
+  &__label {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+
+    &::after {
+      content: " *";
+      color: #d00;
+    }
+  }
+
+  &__input {
+    font-size: 16px;
+    background: #2a2b31;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: var(--primary-color-text);
+    height: $reservation-input-height;
+    padding: 0 1rem;
+    margin-bottom: 1.25rem;
+
+    &:focus {
+      outline: 2px solid #555;
+    }
+  }
+
+  &__error {
+    color: red;
+    font-size: 13px;
+    margin-top: -0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  &__button {
+    background: crimson;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    height: $reservation-button-height;
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover:not(:disabled) {
+      background: #b30000;
+    }
+
+    &:disabled {
+      background: #666;
+      cursor: not-allowed;
+    }
+  }
+
+  &__close {
+    font-size: 20px;
+    color: var(--primary-color-text);
+    cursor: pointer;
+    margin-left: auto;
+    align-self: flex-start;
+  }
+
+  &__wrapper-input,
+  &__wrapper-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 1rem;
+  }
+
+  &__wrapper-lable-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  &__wrapper-button {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 0 0 250px;
+    margin-left: auto;
+  }
+
+  &__wrapper-checkbox {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__checkbox-label {
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap; // ✅ allow wrapping on small screens
+    line-height: 1.4;
+
+    span {
+      display: inline;
+    }
+
+    a {
+      color: crimson;
+      text-decoration: underline;
+      transition: color 0.2s;
+
+      &:hover {
+        color: darkred;
+      }
+    }
+  }
+
+  &__checkbox {
+    accent-color: crimson;
+    width: 1rem;
+    height: 1rem;
+    margin-top: 2px;
+  }
+
+  &__checkbox-error {
+    margin-top: 0.3rem;
+    font-size: 0.75rem;
+    color: red;
+  }
+
+  @media (max-width: 1300px) {
+    flex-direction: column;
+    padding: 2rem;
+
+    &__wrapper-input {
+      width: 100%;
+    }
+
+    &__wrapper-button {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    &__close {
+      align-self: flex-end;
+    }
+  }
+
+  @media (max-width: 722px) {
+    padding: 1.5rem;
+    gap: 1.25rem;
+
+    &__input {
+      height: 44px;
+      font-size: 15px;
+    }
+
+    &__button {
+      height: 48px;
+      font-size: 15px;
+    }
+
+    &__price-rub {
+      font-size: 16px;
+    }
+
+    &__wrapper-button {
+      flex-direction: column;
+    }
+
+    &__wrapper-input,
+    &__wrapper-text {
+      gap: 0.75rem;
+    }
+
+    &__checkbox-label {
+      font-size: 0.85rem;
+    }
+  }
+}

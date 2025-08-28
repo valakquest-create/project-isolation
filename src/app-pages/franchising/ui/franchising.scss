@@ -1,0 +1,38 @@
+.franchising {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+
+  height: 100dvh;
+
+  &__wrapper {
+    padding: 0 30px;
+  }
+
+  &__title,
+  &__description {
+    text-align: center;
+    font-size: 60px;
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 50px;
+  }
+
+  @media (max-width: 1023px) {
+    &__title,
+    &__description {
+      font-size: 40px;
+    }
+  }
+
+  @media (max-width: 575px) {
+    &__description {
+      font-size: 20px;
+      line-height: 32px;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@import "./fonts/fonts.scss";
+
+:root {
+  --primary-color-text: #fff;
+  --primary-color-link: #fff;
+  --burger-line-color: #fff;
+
+  --background-color: #1e2023;
+  --background-color-menu-mobail: #1a1c20;
+  --background-color-preloader: #464646;
+  --background-color-reservation-form: #191a1d;
+
+  --line-color: #fff;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+  scrollbar-width: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+
+  color: var(--primary-color-text);
+  font-family:
+    "Avenir Next Cyr Regular",
+    "Montserrat",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: var(--background-color);
+}

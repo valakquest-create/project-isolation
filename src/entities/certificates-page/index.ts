@@ -1,0 +1,1 @@
+export { certificatesPageRepository } from "./api";

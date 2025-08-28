@@ -1,0 +1,280 @@
+.about-us {
+  position: relative;
+
+  padding: 0 50px;
+  margin-bottom: 100px;
+
+  color: var(--primary-color-text);
+
+  &__wrapper-first-block-text {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 55px;
+  }
+
+  &__logo {
+    max-width: 365px;
+    margin: 0 auto;
+  }
+
+  &__description {
+    margin: 0;
+    box-sizing: border-box;
+
+    &_plain {
+      font-size: 22px;
+      line-height: 36px;
+      text-align: justify;
+    }
+
+    &_first-block-text {
+      width: 60%;
+      font-size: 36px;
+      line-height: 48px;
+
+      //margin: auto;
+
+      // margin-bottom: 70px;
+
+      &::before {
+        content: "о нас";
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 80px;
+        font-size: 64px;
+      }
+    }
+
+    &_second-block-text {
+      width: 705px;
+      font-size: 22px;
+      line-height: 32px;
+
+      margin-bottom: 55px;
+      margin-right: auto;
+    }
+
+    &_third-block-text {
+      width: 70%;
+      font-size: 36px;
+      line-height: 48px;
+      margin-left: auto;
+
+      margin-bottom: 55px;
+    }
+
+    &_fourth-block-text {
+      width: 705px;
+      font-size: 22px;
+      line-height: 32px;
+
+      margin-bottom: 0;
+      margin-right: auto;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-us {
+    padding: 0 30px;
+    margin-bottom: 100px;
+
+    &__logo {
+      width: 40%;
+      margin: auto;
+    }
+
+    &__company-name {
+      font-size: 48px;
+    }
+
+    &__description {
+      margin: 0;
+
+      &_plain {
+        font-size: 22px;
+        line-height: 36px;
+      }
+
+      &_first-block-text {
+        font-size: 22px;
+        line-height: 36px;
+
+        margin: auto;
+
+        &::before {
+          margin-bottom: 50px;
+        }
+      }
+
+      &_second-block-text {
+        width: 60%;
+        font-size: 20px;
+        line-height: 30px;
+
+        margin-bottom: 60px;
+        margin-left: auto;
+      }
+
+      &_third-block-text {
+        width: 85%;
+        font-size: 26px;
+        line-height: 40px;
+
+        margin-bottom: 60px;
+      }
+
+      &_fourth-block-text {
+        width: 60%;
+        font-size: 20px;
+        line-height: 30px;
+
+        margin-bottom: 0;
+        margin-left: auto;
+      }
+    }
+
+    &__img {
+      margin-bottom: 78px;
+    }
+  }
+}
+
+@media (max-width: 860px) {
+  .about-us {
+    &__wrapper-first-block-text {
+      flex-flow: column;
+
+      align-items: center;
+    }
+
+    &__logo {
+      display: none;
+    }
+
+    &__description {
+      margin: 0;
+      width: 472px;
+
+      font-size: 18px;
+
+      &_plain {
+        font-size: 22px;
+        line-height: 36px;
+      }
+
+      &_first-block-text {
+        //width: 100%;
+
+        margin-top: 40px;
+        margin-bottom: 0;
+      }
+
+      &_second-block-text {
+        //font-size: 16px;
+        //line-height: 24px;
+
+        margin-bottom: 70px;
+        margin-left: auto;
+      }
+
+      &_third-block-text {
+        //width: 85%;
+        //font-size: 22px;
+        //line-height: 40px;
+
+        margin-bottom: 85px;
+      }
+
+      &_fourth-block-text {
+        //width: 472px;
+        //font-size: 16px;
+        //line-height: 24px;
+
+        margin-bottom: 0;
+        margin-left: auto;
+      }
+    }
+
+    &__img {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .about-us {
+    padding: 0;
+    margin-bottom: 50px;
+
+    &__logo {
+      display: none;
+    }
+
+    &__wrapper-first-block-text {
+      flex-flow: column;
+      margin-bottom: 40px;
+    }
+
+    &__company-name {
+      font-size: 36px;
+      margin-bottom: 44px;
+    }
+
+    &__description {
+      padding: 0 20px;
+
+      &_plain {
+        font-size: 20px;
+        line-height: 1.5em;
+        margin: 5px;
+        text-align: justify;
+      }
+
+      &_first-block-text {
+        width: 100%;
+        font-size: 16px;
+        line-height: 28px;
+
+        margin-bottom: 0;
+
+        &::before {
+          font-size: 36px;
+          margin-bottom: 30px;
+        }
+      }
+
+      &_second-block-text {
+        width: 100%;
+        font-size: 14px;
+        line-height: 24px;
+
+        margin-bottom: 32px;
+        margin-left: 0;
+      }
+
+      &_third-block-text {
+        width: 100%;
+        font-size: 16px;
+        line-height: 28px;
+
+        margin-bottom: 32px;
+      }
+
+      &_fourth-block-text {
+        width: 100%;
+        font-size: 14px;
+        line-height: 24px;
+
+        margin-bottom: 0;
+        margin-left: 0;
+      }
+    }
+  }
+}
